@@ -1,0 +1,7 @@
+<?php
+require_once dirname(__DIR__) . '/config/config.php'; require_once ROOT_PATH . '/includes/functions.php'; require_once __DIR__.'/_layout.php';
+$term = trim((string)($_GET['q'] ?? '')); $products=[]; $error=null;
+if ($term !== '') { try { $products=(new Product())->search($term,null,60); } catch(PDOException $exception){ error_log('Product search unavailable: '.$exception->getMessage()); $error='Search is temporarily unavailable.'; } }
+shopHeader('Search products','Products'); ?>
+<main class="container shop-main"><div class="shop-breadcrumb"><a href="<?= e(BASE_URL) ?>/">Home</a> / Search</div><div class="shop-title"><div><h1><?= $term ? 'Results for “'.e($term).'”' : 'What are you looking for?' ?></h1><p>Search products by name, description, or SKU.</p></div></div><form class="shop-search page-search" method="get"><input name="q" value="<?= e($term) ?>" placeholder="e.g. coffee, packaging, textiles" required><button type="submit">Search</button></form><?php if ($error): ?><div class="catalog-notice"><?= e($error) ?></div><?php elseif ($term === ''): ?><div class="shop-empty"><h2>Start with a product or keyword</h2><p>Discover products from verified suppliers across Cameroon.</p></div><?php elseif (!$products): ?><div class="shop-empty"><h2>No matching products</h2><p>Try a broader search term.</p></div><?php else: ?><div class="shop-toolbar"><span><b><?= count($products) ?></b> products found</span></div><div class="market-grid"><?php foreach($products as $product) productCard($product); ?></div><?php endif; ?></main>
+<?php shopFooter(); ?>

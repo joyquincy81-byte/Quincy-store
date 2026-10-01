@@ -1,0 +1,12 @@
+<?php declare(strict_types=1);
+require_once dirname(__DIR__) . '/_bootstrap.php';
+apiMethod('POST', 'GET');
+$uid = apiAuth();
+$in = apiInput();
+$reference = trim((string) ($in['reference'] ?? $_GET['reference'] ?? ''));
+if ($reference === '') apiError('Reference is required', 422);
+$s = apiDb()->prepare('SELECT id,order_id,amount,payment_method,status FROM payments WHERE transaction_reference=? AND user_id=?');
+$s->execute([$reference, $uid]);
+$payment = $s->fetch();
+if (!$payment) apiError('Payment not found', 404);
+apiResponse($payment);

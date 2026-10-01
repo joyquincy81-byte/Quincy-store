@@ -1,0 +1,18 @@
+<?php declare(strict_types=1);
+require_once dirname(__DIR__) . '/_bootstrap.php';
+apiMethod('POST');
+apiCsrf();
+$uid = apiAuth();
+$in = apiInput();
+$oid = apiId($in['order_id'] ?? 0);
+$db = apiDb();
+$s = $db->prepare('SELECT total_amount FROM orders WHERE id=? AND user_id=?');
+$s->execute([$oid, $uid]);
+$order = $s->fetch();
+if (!$order) apiError('Order not found', 404);
+$reference = bin2hex(random_bytes(16));
+$method = strtoupper((string) ($in['method'] ?? 'OTHER'));
+if (!in_array($method, ['MTN_MOMO', 'ORANGE_MONEY', 'OTHER'], true)) $method = 'OTHER';
+$s = $db->prepare('INSERT INTO payments(order_id,user_id,amount,payment_method,status,transaction_reference) VALUES(?,?,?, ?,"pending",?)');
+$s->execute([$oid, $uid, $order['total_amount'], $method, $reference]);
+apiResponse(['reference' => $reference, 'amount' => (float) $order['total_amount']], 201);

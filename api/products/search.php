@@ -1,0 +1,4 @@
+<?php declare(strict_types=1); require_once dirname(__DIR__).'/_bootstrap.php'; apiMethod('GET');
+$q=trim((string)($_GET['q']??''));$cat=isset($_GET['category'])&&ctype_digit((string)$_GET['category'])?(int)$_GET['category']:null;$limit=min(100,max(1,(int)($_GET['limit']??24)));
+$where=["p.status='active'"];$p=[];if($q!==''){$where[]='(p.name LIKE ? OR p.description LIKE ? OR p.sku LIKE ?)';$x="%$q%";$p=[$x,$x,$x];}if($cat){$where[]='p.category_id=?';$p[]=$cat;}
+$s=apiDb()->prepare('SELECT p.*,c.name category_name FROM products p LEFT JOIN categories c ON c.id=p.category_id WHERE '.implode(' AND ',$where).' ORDER BY p.created_at DESC LIMIT '.$limit);$s->execute($p);apiResponse($s->fetchAll());

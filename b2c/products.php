@@ -1,0 +1,12 @@
+<?php
+require_once __DIR__ . '/_bootstrap.php';
+$term=trim((string)($_GET['q']??'')); $category=filter_input(INPUT_GET,'category',FILTER_VALIDATE_INT) ?: null;
+$categories=b2cRows("SELECT id,name FROM categories WHERE status='active' ORDER BY name");
+$where=["p.status='active'"]; $params=[];
+if($term!==''){ $where[]='(p.name LIKE ? OR p.description LIKE ? OR p.sku LIKE ?)';$like="%$term%";$params=[$like,$like,$like]; }
+if($category){$where[]='p.category_id=?';$params[]=$category;}
+$products=b2cRows("SELECT p.*,c.name category_name,COALESCE(i.quantity-i.reserved_quantity,0) available_quantity,(SELECT pi.image FROM product_images pi WHERE pi.product_id=p.id ORDER BY pi.is_primary DESC,pi.sort_order LIMIT 1) image FROM products p LEFT JOIN categories c ON c.id=p.category_id LEFT JOIN inventory i ON i.product_id=p.id AND i.variant_id IS NULL WHERE ".implode(' AND ',$where)." ORDER BY p.created_at DESC LIMIT 48",$params);
+b2cPage('Products','products'); ?>
+<div class="section-head"><div><h1><?= $term ? 'Search results' : 'All products' ?></h1><p><?= $term ? 'Showing matches for “'.e($term).'”' : 'Quality essentials from trusted sellers.' ?></p></div></div>
+<form class="filters" method="get"><input name="q" value="<?= e($term) ?>" placeholder="Search products"><select name="category" data-autosubmit><option value="">All categories</option><?php foreach($categories as $c): ?><option value="<?= (int)$c['id'] ?>" <?= $category===$c['id']?'selected':'' ?>><?= e($c['name']) ?></option><?php endforeach; ?></select><button class="btn" type="submit">Filter</button></form>
+<?php if(!$products): ?><div class="empty"><h3>No products found</h3><p>Try another search or browse all categories.</p><a class="btn light" href="products.php">Clear filters</a></div><?php else: ?><section class="grid"><?php foreach($products as $p): ?><article class="card"><a href="product-details.php?id=<?= (int)$p['id'] ?>"><div class="product-image"><?php if($p['image']): ?><img src="<?= e(b2cImage($p['image'])) ?>" alt="<?= e($p['name']) ?>"><?php else: ?>✦<?php endif; ?></div><div class="card-body"><span class="muted"><?= e($p['category_name']??'Collection') ?></span><h3><?= e($p['name']) ?></h3><span class="price"><?= e(formatPrice($p['retail_price'])) ?></span></div></a></article><?php endforeach; ?></section><?php endif; ?><?php b2cEnd(); ?>

@@ -1,0 +1,1 @@
+<?php declare(strict_types=1);require_once dirname(__DIR__).'/_bootstrap.php';apiMethod('POST','PUT');apiCsrf();$uid=apiAuth();$in=apiInput();$id=apiId($in['id']??0);$s=apiDb()->prepare('UPDATE notifications SET is_read=1 WHERE id=? AND user_id=?');$s->execute([$id,$uid]);if(!$s->rowCount())apiError('Notification not found',404);apiResponse(['id'=>$id,'read'=>true]);

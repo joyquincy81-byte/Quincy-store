@@ -1,0 +1,192 @@
+QUINCY STORE LIVE SYSTEM AUDIT
+Generated: 09/15/2026 09:51:29
+URL: http://localhost/quincy-store/
+===== PHP VERSION =====
+PHP 8.2.12 (cli) (built: Oct 24 2023 21:15:15) (ZTS Visual C++ 2019 x64)
+Copyright (c) The PHP Group
+Zend Engine v4.2.12, Copyright (c) Zend Technologies
+===== APACHE/PHP HTTP TESTS =====
+200 | http://localhost/quincy-store/ | text/html; charset=UTF-8
+200 | http://localhost/quincy-store/login.php | text/html; charset=UTF-8
+200 | http://localhost/quincy-store/register.php | text/html; charset=UTF-8
+200 | http://localhost/quincy-store/shop/products.php | text/html; charset=UTF-8
+200 | http://localhost/quincy-store/shop/categories.php | text/html; charset=UTF-8
+ERROR | http://localhost/quincy-store/b2b/index.php | Operation is not valid due to the current state of the object.
+200 | http://localhost/quincy-store/b2b/marketplace.php | text/html; charset=UTF-8
+200 | http://localhost/quincy-store/shop/suppliers.php | text/html; charset=UTF-8
+ERROR | http://localhost/quincy-store/customer/dashboard.php | Operation is not valid due to the current state of the object.
+ERROR | http://localhost/quincy-store/supplier/dashboard.php | Operation is not valid due to the current state of the object.
+ERROR | http://localhost/quincy-store/manufacturer/dashboard.php | Operation is not valid due to the current state of the object.
+ERROR | http://localhost/quincy-store/business/dashboard.php | Operation is not valid due to the current state of the object.
+ERROR | http://localhost/quincy-store/logistics/dashboard.php | Operation is not valid due to the current state of the object.
+ERROR | http://localhost/quincy-store/admin/dashboard.php | Operation is not valid due to the current state of the object.
+===== DATABASE CONNECTION =====
+DATABASE CONNECTED
+DATABASE: ecommerce_db
+TABLE COUNT: 33
+TABLE: addresses
+ROWS: 0
+TABLE: audit_logs
+ROWS: 90
+TABLE: businesses
+ROWS: 5
+TABLE: cart_items
+ROWS: 0
+TABLE: carts
+ROWS: 1
+TABLE: categories
+ROWS: 4
+TABLE: inventory
+ROWS: 1
+TABLE: manufacturers
+ROWS: 1
+TABLE: negotiation_messages
+ROWS: 0
+TABLE: negotiations
+ROWS: 0
+TABLE: notifications
+ROWS: 0
+TABLE: order_items
+ROWS: 0
+TABLE: orders
+ROWS: 0
+TABLE: password_resets
+ROWS: 0
+TABLE: payments
+ROWS: 0
+TABLE: product_images
+ROWS: 0
+TABLE: product_variants
+ROWS: 0
+TABLE: products
+ROWS: 1
+TABLE: promotion_products
+ROWS: 0
+TABLE: promotions
+ROWS: 0
+TABLE: quotation_items
+ROWS: 0
+TABLE: quotation_requests
+ROWS: 0
+TABLE: rate_limits
+ROWS: 0
+TABLE: refunds
+ROWS: 0
+TABLE: reviews
+ROWS: 0
+TABLE: roles
+ROWS: 6
+TABLE: settings
+ROWS: 16
+TABLE: shipment_tracking
+ROWS: 0
+TABLE: shipments
+ROWS: 0
+TABLE: suppliers
+ROWS: 3
+TABLE: support_tickets
+ROWS: 0
+TABLE: users
+ROWS: 11
+TABLE: wishlists
+ROWS: 0
+===== EMPTY PRODUCTION FILES =====
+C:\xampp\htdocs\quincy-store\.htaccess
+C:\xampp\htdocs\quincy-store\assets\css\buyer.css
+C:\xampp\htdocs\quincy-store\assets\css\responsive.css
+C:\xampp\htdocs\quincy-store\assets\js\cart.js
+C:\xampp\htdocs\quincy-store\assets\js\checkout.js
+C:\xampp\htdocs\quincy-store\assets\js\main.js
+C:\xampp\htdocs\quincy-store\assets\js\negotiation.js
+C:\xampp\htdocs\quincy-store\assets\js\notifications.js
+C:\xampp\htdocs\quincy-store\assets\js\orders.js
+C:\xampp\htdocs\quincy-store\assets\js\payment.js
+C:\xampp\htdocs\quincy-store\assets\js\products.js
+C:\xampp\htdocs\quincy-store\assets\js\quotation.js
+C:\xampp\htdocs\quincy-store\business\bulk-orders.php
+C:\xampp\htdocs\quincy-store\business\index.php
+C:\xampp\htdocs\quincy-store\business\negotiations.php
+C:\xampp\htdocs\quincy-store\business\notifications.php
+C:\xampp\htdocs\quincy-store\business\order-details.php
+C:\xampp\htdocs\quincy-store\business\orders.php
+C:\xampp\htdocs\quincy-store\business\payments.php
+C:\xampp\htdocs\quincy-store\business\product-details.php
+C:\xampp\htdocs\quincy-store\business\products.php
+C:\xampp\htdocs\quincy-store\business\profile.php
+C:\xampp\htdocs\quincy-store\business\quotation-details.php
+C:\xampp\htdocs\quincy-store\business\quotation-request.php
+C:\xampp\htdocs\quincy-store\business\quotations.php
+C:\xampp\htdocs\quincy-store\business\settings.php
+C:\xampp\htdocs\quincy-store\business\shipments.php
+C:\xampp\htdocs\quincy-store\business\suppliers.php
+C:\xampp\htdocs\quincy-store\database\quincy_store.sql
+C:\xampp\htdocs\quincy-store\database\seeders\admin.sql
+C:\xampp\htdocs\quincy-store\database\seeders\categories.sql
+C:\xampp\htdocs\quincy-store\database\seeders\roles.sql
+C:\xampp\htdocs\quincy-store\includes\auth.php
+C:\xampp\htdocs\quincy-store\includes\footer.php
+C:\xampp\htdocs\quincy-store\includes\header.php
+C:\xampp\htdocs\quincy-store\includes\navbar.php
+C:\xampp\htdocs\quincy-store\includes\notifications.php
+C:\xampp\htdocs\quincy-store\includes\sidebar.php
+C:\xampp\htdocs\quincy-store\manufacturer\edit-product.php
+C:\xampp\htdocs\quincy-store\manufacturer\index.php
+C:\xampp\htdocs\quincy-store\manufacturer\inventory.php
+C:\xampp\htdocs\quincy-store\manufacturer\negotiations.php
+C:\xampp\htdocs\quincy-store\manufacturer\notifications.php
+C:\xampp\htdocs\quincy-store\manufacturer\orders.php
+C:\xampp\htdocs\quincy-store\manufacturer\profile.php
+C:\xampp\htdocs\quincy-store\manufacturer\quotations.php
+C:\xampp\htdocs\quincy-store\manufacturer\settings.php
+C:\xampp\htdocs\quincy-store\payment\payment-cancelled.php
+C:\xampp\htdocs\quincy-store\payment\payment-failed.php
+C:\xampp\htdocs\quincy-store\payment\payment-success.php
+C:\xampp\htdocs\quincy-store\payment\mtn\callback.php
+C:\xampp\htdocs\quincy-store\payment\mtn\initiate.php
+C:\xampp\htdocs\quincy-store\payment\mtn\verify.php
+C:\xampp\htdocs\quincy-store\payment\orange\callback.php
+C:\xampp\htdocs\quincy-store\payment\orange\initiate.php
+C:\xampp\htdocs\quincy-store\payment\orange\verify.php
+C:\xampp\htdocs\quincy-store\supplier\edit-product.php
+C:\xampp\htdocs\quincy-store\supplier\index.php
+C:\xampp\htdocs\quincy-store\supplier\inventory.php
+C:\xampp\htdocs\quincy-store\supplier\negotiations.php
+C:\xampp\htdocs\quincy-store\supplier\notifications.php
+C:\xampp\htdocs\quincy-store\supplier\order-details.php
+C:\xampp\htdocs\quincy-store\supplier\orders.php
+C:\xampp\htdocs\quincy-store\supplier\profile.php
+C:\xampp\htdocs\quincy-store\supplier\quotation-details.php
+C:\xampp\htdocs\quincy-store\supplier\quotations.php
+C:\xampp\htdocs\quincy-store\supplier\sales.php
+C:\xampp\htdocs\quincy-store\supplier\settings.php
+===== CURRENT PHP FAILURES ONLY =====
+PHP Fatal error:  strict_types declaration must be the very first statement in the script in C:\xampp\htdocs\quincy-store\manufacturer\add-product.php on line 3
+
+Fatal error: strict_types declaration must be the very first statement in the script in C:\xampp\htdocs\quincy-store\manufacturer\add-product.php on line 3
+Errors parsing C:\xampp\htdocs\quincy-store\manufacturer\add-product.php
+
+Fatal error: strict_types declaration must be the very first statement in the script in C:\xampp\htdocs\quincy-store\manufacturer\products.php on line 3
+PHP Fatal error:  strict_types declaration must be the very first statement in the script in C:\xampp\htdocs\quincy-store\manufacturer\products.php on line 3
+Errors parsing C:\xampp\htdocs\quincy-store\manufacturer\products.php
+CURRENT PHP FAILURES: 2
+===== LEGACY ROUTES =====
+C:\xampp\htdocs\quincy-store\admin\orders.php:504: <a href="<?php echo BASE_URL; ?>/seller/register.php">Become a Supplier</a>
+C:\xampp\htdocs\quincy-store\admin\orders.php:507: <a href="<?php echo BASE_URL; ?>/buyer/orders.php">My Orders</a>
+C:\xampp\htdocs\quincy-store\admin\orders.php:508: <a href="<?php echo BASE_URL; ?>/auth/login.php">Sign In</a>
+C:\xampp\htdocs\quincy-store\admin\orders.php:509: <a href="<?php echo BASE_URL; ?>/auth/register.php">Create Account</a>
+C:\xampp\htdocs\quincy-store\admin\orders.php:530: <a href="<?php echo BASE_URL; ?>/buyer/dashboard.php">
+C:\xampp\htdocs\quincy-store\admin\orders.php:534: <a href="<?php echo BASE_URL; ?>/buyer/my-quotations.php">
+C:\xampp\htdocs\quincy-store\admin\orders.php:538: <a href="<?php echo BASE_URL; ?>/buyer/cart.php">
+C:\xampp\htdocs\quincy-store\admin\orders.php:542: <a href="<?php echo BASE_URL; ?>/seller/register.php" class="btn-supplier">Start Selling</a>
+C:\xampp\htdocs\quincy-store\admin\orders.php:557: <a href="<?php echo BASE_URL; ?>/buyer/request-quote.php">Request for Quotation</a>
+C:\xampp\htdocs\quincy-store\admin\orders.php:581: <a href="<?php echo BASE_URL; ?>/buyer/browse-products.php" class="btn-primary">Start Sourcing</a>
+C:\xampp\htdocs\quincy-store\admin\orders.php:635: <a href="<?php echo BASE_URL; ?>/buyer/browse-products.php">See all products</a>
+C:\xampp\htdocs\quincy-store\admin\orders.php:754: <a href="<?php echo BASE_URL; ?>/seller/register.php" class="btn-primary">Become a Supplier</a>
+C:\xampp\htdocs\quincy-store\admin\orders.php:764: <li><a href="<?php echo BASE_URL; ?>/buyer/request-quote.php">Request a Quotation</a></li>
+C:\xampp\htdocs\quincy-store\admin\orders.php:772: <li><a href="<?php echo BASE_URL; ?>/seller/register.php">Become a Supplier</a></li>
+C:\xampp\htdocs\quincy-store\admin\orders.php:773: <li><a href="<?php echo BASE_URL; ?>/seller/dashboard.php">Seller Dashboard</a></li>
+C:\xampp\htdocs\quincy-store\forgot-password.php:14: <section class="auth-form-panel"><div class="auth-form-wrap recovery-form-wrap"><div class="auth-heading"><p class="eyebrow">PASSWORD RESET</p><h2>Forgot your password?</h2><p>Enter the email address linked to your account and we&rsquo;ll send reset instructions.</p></div><?php if ($error): ?><div class="auth-alert auth-alert-error" role="alert"><?= e($error) ?></div><?php endif; ?><?php if ($success): ?><div class="auth-alert auth-alert-success" role="status"><?= e($success) ?></div><?php endif; ?><form class="auth-form" method="post" action="<?= e(BASE_URL) ?>/api/auth/forgot-password.php"><?= csrfField() ?><div class="field-group"><label for="email">Email address</label><input id="email" type="email" name="email" required autocomplete="email" placeholder="you@example.com"></div><button class="auth-submit" type="submit">Send reset link <span>&rarr;</span></button></form><p class="auth-signup"><a href="<?= e(BASE_URL) ?>/login.php">&larr; Back to sign in</a></p></div></section>
+C:\xampp\htdocs\quincy-store\login.php:44: <form id="login-form" class="auth-form" method="post" action="<?= e(BASE_URL) ?>/api/auth/login-process.php">
+C:\xampp\htdocs\quincy-store\register.php:39: <form class="auth-form register-form" method="post" action="<?= e(BASE_URL) ?>/api/auth/register-process.php">
+C:\xampp\htdocs\quincy-store\reset-password.php:19: <section class="auth-form-panel"><div class="auth-form-wrap recovery-form-wrap"><div class="auth-heading"><p class="eyebrow">PASSWORD RESET</p><h2>Set a new password</h2><p>Use at least 8 characters.</p></div><?php if ($error): ?><div class="auth-alert auth-alert-error" role="alert"><?= e($error) ?></div><?php endif; ?><?php if ($valid): ?><form class="auth-form" method="post" action="<?= e(BASE_URL) ?>/api/auth/reset-password.php"><?= csrfField() ?><input type="hidden" name="token" value="<?= e($token) ?>"><div class="field-group"><label for="password">New password</label><input id="password" type="password" name="password" required minlength="8" autocomplete="new-password"></div><div class="field-group"><label for="confirm_password">Confirm password</label><input type="password" name="confirm_password" required minlength="8" autocomplete="new-password"></div><button class="auth-submit" type="submit">Reset password <span>&rarr;</span></button></form><?php else: ?><div class="auth-alert auth-alert-error">This reset link is invalid or has expired.</div><a class="auth-submit recovery-link" href="<?= e(BASE_URL) ?>/forgot-password.php">Request a new link</a><?php endif; ?><p class="auth-signup"><a href="<?= e(BASE_URL) ?>/login.php">&larr; Back to sign in</a></p></div></section>
+===== AUDIT COMPLETE =====

@@ -1,0 +1,6 @@
+<?php
+require_once dirname(__DIR__) . '/config/config.php'; require_once ROOT_PATH . '/includes/functions.php'; require_once __DIR__.'/_layout.php';
+$categories=[]; $error=null; try{$categories=(new Category())->all();}catch(PDOException $exception){error_log('Categories unavailable: '.$exception->getMessage());$error='Categories are temporarily unavailable.';}
+shopHeader('Browse categories','Categories'); ?>
+<main class="container shop-main"><div class="shop-breadcrumb"><a href="<?= e(BASE_URL) ?>/">Home</a> / Categories</div><div class="shop-title"><div><h1>Browse by category</h1><p>Find the products and suppliers that move your business forward.</p></div></div><?php if($error): ?><div class="catalog-notice"><?= e($error) ?></div><?php elseif(!$categories): ?><div class="shop-empty"><h2>No categories available</h2></div><?php else: ?><div class="category-market"><?php foreach($categories as $category): ?><a class="category-tile" href="<?= e(BASE_URL) ?>/shop/products.php?category=<?= (int)$category['id'] ?>"><b><?= e(strtoupper(substr((string)$category['name'],0,1))) ?></b><h2><?= e($category['name']) ?></h2><p><?= e($category['description'] ?: 'Explore products in this category') ?> →</p></a><?php endforeach; ?></div><?php endif; ?></main>
+<?php shopFooter(); ?>

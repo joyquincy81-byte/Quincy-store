@@ -1,0 +1,1 @@
+document.addEventListener('click',function(e){var b=e.target.closest('[data-menu]');if(b){document.querySelector('.store-header nav').classList.toggle('open')}});document.querySelectorAll('[data-autosubmit]').forEach(function(e){e.addEventListener('change',function(){e.form.submit()})});
